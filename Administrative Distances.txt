@@ -1,0 +1,8 @@
+Administrative Distances
+Static/Default route  = 1
+eBGP = 20
+iBGP = 200
+OSPF = 110
+EIGRP = 90, External EIGRP = 170
+RIP (Obsolete) = 120
+ISIS = 

@@ -1,0 +1,67 @@
+for sykesasia.com
+
+@D1:
+conf t
+vlan 25
+name sykes.com
+int vlan 25
+no sh
+ip add 172.16.8.1 255.255.248.0
+ip dhcp excluded-address 172.16.8.1 172.16.8.100
+ip dhcp pool sykes.com
+network 172.16.8.0 255.255.248.0
+default-router 172.16.8.1
+domain-name sykes.com
+end
+
+!dns-server 10.41.1.10
+!option 150 ip 10.41.100.8
+!int fa0/5
+!switchport mode access
+!switchport access vlan 25
+
+
+
+
+Recover-Config
+
+
+
+@A1:
+config t
+int e0/0
+switchport access vlan 25
+
+@P1
+conf t 
+int e0/0
+ip add dhcp
+no sh
+
+
+
+
+
+
+TASK4: 100% JOB Int. IPV4 Address Mastery
+Q1: What are the 6 classes of IPV4
+
+SpeciaClass: Default Route/Taga bigay ng Internet!!
+0.0.0.0/0 0.0.0.0 0.0.0.0
+
+127.0.0.1 - 127.255.255.255 = LOOPBACK/BalikSayo
+169.254.0.1 - 169.254.255.255 = APIPA, No DHCP Server
+AutomaticPrivateIPAddressAllocation
+
+Q2: What are the Private IP Address vs Public IP Address
+Public IP address are internet routable IP Address.Used in vpn,webhossting,dns.etc
+Private IP address are for poor people:Non-routableIP/No Business Skills
+192.168.0.0
+172.16.0.0
+10.0.0.0/8
+
+Q3: How do you check if you have Private or Public IP Address
+Public IP: IP Chicken.com/What's My IP
+
+Q4: What are the 5 Classess of IP Address:
+The Whole World is using CIDR: Classles Inter Domain Routing
